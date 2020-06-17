@@ -12,10 +12,10 @@ import static com.example.notificationbug.FirstFragment.EXTRA_TEXT_REPLY;
 import static com.example.notificationbug.FirstFragment.NOTIFICATION_REQUEST_CODE;
 import static com.example.notificationbug.FirstFragment.NOTIFICATION_TAG;
 
-public class InlineReplayService extends IntentService {
+public class InlineReplyService extends IntentService {
 
-    public InlineReplayService() {
-        super(InlineReplayService.class.getSimpleName());
+    public InlineReplyService() {
+        super(InlineReplyService.class.getSimpleName());
     }
 
     @Override

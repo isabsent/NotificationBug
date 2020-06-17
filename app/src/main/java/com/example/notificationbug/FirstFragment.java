@@ -5,8 +5,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -50,7 +48,7 @@ public class FirstFragment extends Fragment {
                 .setSmallIcon(android.R.drawable.ic_popup_reminder)
                 .setContentTitle("Title")
                 .setAutoCancel(true)
-                .addAction(getReplayAction(new Intent(getContext(), InlineReplayService.class).setAction(ACTION_REPLY)));
+                .addAction(getReplyAction(new Intent(getContext(), InlineReplyService.class).setAction(ACTION_REPLY)));
 
 
         NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
@@ -64,13 +62,13 @@ public class FirstFragment extends Fragment {
         notificationManager.notify(NOTIFICATION_TAG, NOTIFICATION_REQUEST_CODE, notificationBuilder.build());
     }
 
-    private NotificationCompat.Action getReplayAction(Intent replayIntent){
+    private NotificationCompat.Action getReplyAction(Intent replayIntent){
         RemoteInput remoteInput = new RemoteInput.Builder(EXTRA_TEXT_REPLY)
                 .setLabel("Type message")
                 .build();
 
         PendingIntent replyPendingIntent = PendingIntent.getService(getContext(), NOTIFICATION_REQUEST_CODE, replayIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        return new NotificationCompat.Action.Builder(android.R.drawable.ic_menu_send, "Replay", replyPendingIntent)
+        return new NotificationCompat.Action.Builder(android.R.drawable.ic_menu_send, "Reply", replyPendingIntent)
                 .addRemoteInput(remoteInput)
                 .build();
     }

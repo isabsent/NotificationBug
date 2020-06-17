@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".InlineReplayService" android:exported="false">
+        <service android:name=".InlineReplyService" android:exported="false">
             <intent-filter>
                 <action android:name="com.jetico.messenger.action.REPLAY"/>
                 <action android:name="com.jetico.messenger.action.READ"/>
